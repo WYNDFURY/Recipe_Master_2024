@@ -21,6 +21,6 @@ elseif (isset($_GET['authors'])) :
 // ACTION: home
 // VIEW: pages/home.php
 else :
-    include_once '../app/controllers/pagesController.php';
-    \App\Controllers\PagesController\homeAction($connexion);
+    include_once '../app/controllers/homeController.php';
+    \App\Controllers\HomeController\homeAction($connexion);
 endif;

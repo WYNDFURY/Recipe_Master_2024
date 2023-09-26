@@ -11,6 +11,6 @@ define('DISPATCHER_NAME', 'index.php');
 
 // Paramètres de connexion
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'book_hunter');
-define('DB_USER', 'root');
+define('DB_NAME', 'recipe_master');
+define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');

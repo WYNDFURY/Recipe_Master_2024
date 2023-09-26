@@ -5,7 +5,7 @@
     <?php include_once '../app/views/templates/partials/_head.php'; ?>
 </head>
 
-<body class="bg-gray-900 text-white font-sans leading-normal tracking-normal">
+<body class="bg-gray-100 text-gray-800 font-sans leading-normal tracking-normal">
 
     <?php include_once '../app/views/templates/partials/_header.php'; ?>
 
