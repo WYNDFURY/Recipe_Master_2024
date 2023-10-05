@@ -3,9 +3,10 @@
 namespace App\Controllers\HomeController;
 
 function homeAction(\PDO $connexion) {
-
     include_once '../app/models/recipesModel.php';
-    $recipes = \App\Models\recipesModel\findAllPopulars($connexion);
+    $popularRecipes = \App\Models\recipesModel\findAllPopulars($connexion);
+    $featuredRecipe = \App\Models\recipesModel\featuredRecipe($connexion);
+
 
     global $title, $content;
     $title = "Homepage - Recipe Master";

@@ -2,17 +2,18 @@
 
 namespace App\Models\RecipesModel;
 
-function findBestRatedRecipe(){
+function featuredRecipe(){
 
 }
 
 function findAllPopulars(\PDO $connexion) {
-        $sql = "SELECT  AVG(r.value), 
-        dsh.*, 
-        us.id AS usersID,
-        us.name as username,
-        tod.id as categoryID,
-        tod.name as typeName
+    $sql = 
+    "SELECT AVG(r.value), 
+            dsh.*, 
+            us.id AS usersID,
+            us.name as username,
+            tod.id as categoryID,
+            tod.name as typeName
     FROM dishes dsh
     JOIN types_of_dishes tod ON dsh.type_id = tod.id
     JOIN users us ON dsh.user_id = us.id
