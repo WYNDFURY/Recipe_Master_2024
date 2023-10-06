@@ -6,7 +6,10 @@ RewriteEngine on
 # ROUTES
 #--------------------------------------------------
 
-
+# ROUTE LISTE DES RECETTES
+# PATTERN: /RECIPES
+# TARGET: ?recipes=index
+RewriteRule ^recipes/?$ index.php?recipes=index [L]
 
 # -------------------------------------------------
 # API ENDPOINTS

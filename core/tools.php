@@ -28,20 +28,17 @@ function slugify($str, $delimiter = '-')
     return $str;
 }
 
-function truncateText($text, $maxLength, $addEllipsis = true) {
-    // Check if the length of the text is greater than the maximum length
-    if (strlen($text) > $maxLength) {
-        // Trim the text to the specified length
-        $truncatedText = substr($text, 0, $maxLength);
+function truncateText($text, $maxLength) {
+        // Permet de trouver le dernier espace dans la limite de caractère donné.
+        $lastSpace = strrpos(substr($text, 0, $maxLength), ' ');
 
-        // If $addEllipsis is true, append an ellipsis to the truncated text
-        if ($addEllipsis) {
-            $truncatedText .= '...';
-        }
+        // Permet de réduire le texte jusqu'à l'espace trouvé dans la variable du dessus.
+        $truncatedText = substr($text, 0, $lastSpace);
 
+        // Rajoute "..." à la fin du texte tronqué.
+        $truncatedText .= '...';
+
+        // Retrourne le texte tronqué.
         return $truncatedText;
     }
 
-    // If the text is already within the maximum length, return the original text
-    return $text;
-}

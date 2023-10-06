@@ -1,16 +1,22 @@
 <?php 
 
 namespace App\Controllers\HomeController;
+Use \App\Models\RecipesModel;
+Use \App\Models\UsersModel;
 
 function homeAction(\PDO $connexion) {
     include_once '../app/models/recipesModel.php';
-    $popularRecipes = \App\Models\recipesModel\findAllPopulars($connexion);
-    $featuredRecipe = \App\Models\recipesModel\featuredRecipe($connexion);
-
+    $popularRecipes = RecipesModel\findAllPopulars($connexion);
+    $featuredRecipe = RecipesModel\featuredRecipe($connexion);
+    
+    include_once '../app/models/usersModel.php';
+    $randomUser = UsersModel\findOneRandom($connexion);
+    $randomUserRecipes = RecipesModel\findAllByUserId($connexion, $randomUser["user_id"]);
+    
 
     global $title, $content;
     $title = "Homepage - Recipe Master";
     ob_start();
-    include '../app/views/home/index.php';
+    include '../app/views/home/home.php';
     $content = ob_get_clean();
 }

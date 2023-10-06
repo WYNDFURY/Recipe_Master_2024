@@ -6,20 +6,16 @@
 if (isset($_GET['users'])) :
     include_once '../app/routers/users.php';
 
-// BOOKS: ROUTER DES BOOKS
-// PATTERN: ?books=xxx
-elseif (isset($_GET['books'])) :
-    include_once '../app/routers/books.php';
-
-// AUTHORS.: ROUTER DES AUTHORS
-// PATTERN: ?authors=xxx
-elseif (isset($_GET['authors'])) :
-    include_once '../app/routers/authors.php';
+// BOOKS: ROUTER DES RECIPES
+// PATTERN: ?recipes=xxx
+elseif (isset($_GET['recipes'])) :
+    include_once '../app/routers/recipes.php';
+    var_dump("fdsfdsf");
 
 // PATTERN: /
-// CTRL: pagesController
+// CTRL: homeController
 // ACTION: home
-// VIEW: pages/home.php
+// VIEW: home/home.php
 else :
     include_once '../app/controllers/homeController.php';
     \App\Controllers\HomeController\homeAction($connexion);

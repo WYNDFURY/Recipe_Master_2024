@@ -13,4 +13,3 @@ require_once '../core/constantes.php';
 
 // 4. Charge les Tools
 require_once '../core/tools.php';
-

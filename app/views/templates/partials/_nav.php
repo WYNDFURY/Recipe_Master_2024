@@ -59,7 +59,7 @@
             placeholder="Rechercher une recette..."
             class="p-2 w-full"
           />
-          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="#"
+          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="recipes"
             >Recettes</a
           >
           <a class="block text-white hover:text-yellow-500 px-3 py-2" href="#"

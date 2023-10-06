@@ -1,6 +1,6 @@
 <!-- recette en vedette -->
 
-
+<?php include_once "../app/views/recipes/_indexFeaturedRecipe.php";?>
 
 <!-- recettes populaires  -->
 <section>
@@ -10,3 +10,4 @@
 
 <!-- random user profile  -->
 
+<?php include_once "../app/views/recipes/_indexRandomUserRecipes.php"?>
