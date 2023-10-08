@@ -11,6 +11,11 @@ RewriteEngine on
 # TARGET: ?recipes=index
 RewriteRule ^recipes/?$ index.php?recipes=index [L]
 
+# ROUTE DETAIL D'UNE RECETTE
+# PATTERN: /RECIPES/{id}/{slug}
+# TARGET: ?recipes=show
+RewriteRule ^recipes\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?recipes=show&id=$1 [L]
+
 # ROUTE LISTE DES RECETTES PAR CATEGORIE
 # PATTERN: /CATEGORIES/{id}/{slug}
 # TARGET: ?categories=show&id=x

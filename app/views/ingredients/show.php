@@ -1,6 +1,6 @@
 <?php use Core\Tools;
-
-use function Core\Tools\truncateText;
+use function Core\Tools\Slugify;
+use function Core\Tools\TruncateText;
 ?>
 
 <section>
@@ -19,7 +19,7 @@ use function Core\Tools\truncateText;
                     <p class="text-gray-600">
                         <?php echo  truncateText($recipe['recipe_description'], 50); ?>
                     </p>
-                    <a href="#" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">Voir la recette</a>
+                    <a href="recipes/<?php echo $recipe['recipe_id']; ?>/<?php echo slugify($recipe['recipe_name']); ?>" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">Voir la recette</a>
                 </div>
             </article>
         <?php endforeach; ?>

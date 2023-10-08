@@ -21,24 +21,72 @@ function findAll(\PDO $connexion){
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
+function findOneById(\PDO $connexion, int $id = 1){
+    $sql =
+    "SELECT
+        d.id AS recipe_id,
+        d.name AS recipe_name,
+        d.description AS recipe_description,
+        u.name AS recipe_chef,
+        d.prep_time AS recipe_time,
+        AVG(r.value) AS recipe_rating,
+        COUNT(c.id) AS recipe_comments
+    FROM
+        dishes d
+    JOIN
+        users u ON d.user_id = u.id
+    LEFT JOIN
+        comments c ON d.id = c.dish_id
+    LEFT JOIN
+        ratings r ON d.id = r.dish_id  
+    WHERE
+        d.id = :id
+    GROUP BY
+        d.id, d.name, d.description, u.name;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetch(\PDO::FETCH_ASSOC);
+}
+
+
 function featuredRecipe(\PDO $connexion, int $id = 1){
-    $sql ="SELECT *
+    $sql =
+    "SELECT 
+        *
     FROM (
-        SELECT d.id AS recipe_id, d.name AS recipe_name, d.description AS recipe_description,
-               u.id AS user_id, u.name AS user_name, 
-               AVG(r.value) AS avg_rating, 
-               COUNT(c.id) AS comment_count
-        FROM dishes d
-        LEFT JOIN ratings r ON d.id = r.dish_id
-        LEFT JOIN users u ON d.user_id = u.id
-        LEFT JOIN comments c ON d.id = c.dish_id
-        GROUP BY d.id
-        HAVING COUNT(r.dish_id) > 0
-        ORDER BY avg_rating DESC
-        LIMIT 10
+    SELECT 
+        d.id AS recipe_id, 
+        d.name AS recipe_name, 
+        d.description AS recipe_description,
+        u.id AS user_id, 
+        u.name AS user_name, 
+        AVG(r.value) AS avg_rating, 
+        COALESCE(comment_count, 0) AS comment_count
+    FROM 
+        dishes d
+    LEFT JOIN 
+        ratings r ON d.id = r.dish_id
+    LEFT JOIN 
+        users u ON d.user_id = u.id
+    LEFT JOIN (
+        SELECT dish_id, COUNT(id) AS comment_count
+        FROM comments
+        GROUP BY dish_id
+    ) c ON d.id = c.dish_id
+    GROUP BY 
+        d.id
+    HAVING 
+        COUNT(r.dish_id) > 0
+    ORDER BY 
+        avg_rating DESC
+    LIMIT 
+        10
     ) AS top_10
-    ORDER BY RAND()
-    LIMIT 1;";
+    ORDER BY 
+        RAND()
+    LIMIT 
+        1;";
     $rs = $connexion->prepare($sql);
     $rs->execute();
     return $rs->fetch(\PDO::FETCH_ASSOC);
@@ -47,22 +95,30 @@ function featuredRecipe(\PDO $connexion, int $id = 1){
 function findAllPopulars(\PDO $connexion) {
     $sql = 
     "SELECT 
-        AVG(r.value), 
-        dsh.*, 
-        us.id AS usersID,
-        us.name as username,
-        tod.id as categoryID,
-        tod.name as typeName
+        AVG(r.value) AS recipe_rating, 
+        d.name AS recipe_name,
+        d.description AS recipe_description,
+        d.id AS recipe_id,
+        us.id AS user_id,
+        us.name as recipe_chef,
+        tod.id as category_id,
+        tod.name as category_name,
+        COALESCE(comment_count, 0) AS recipe_comment
     FROM 
-        dishes dsh
+        dishes d
     JOIN 
-        types_of_dishes tod ON dsh.type_id = tod.id
+        types_of_dishes tod ON d.type_id = tod.id
     JOIN 
-        users us ON dsh.user_id = us.id
+        users us ON d.user_id = us.id
     LEFT JOIN 
-        ratings r ON r.dish_id = dsh.id
+        ratings r ON r.dish_id = d.id
+    LEFT JOIN (
+        SELECT dish_id, COUNT(id) AS comment_count
+        FROM comments
+        GROUP BY dish_id
+    ) c ON d.id = c.dish_id
     GROUP BY 
-        dsh.id
+        d.id
     ORDER BY 
         AVG(r.value) DESC
     LIMIT 
@@ -96,5 +152,4 @@ function findAllByUserId(\PDO $connexion, int $id)
 
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
-
 

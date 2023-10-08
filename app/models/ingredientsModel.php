@@ -33,14 +33,33 @@ function findAllByIngredientId(\PDO $connexion, int $id)
     GROUP BY
         d.id, d.name, d.description, t.name, i.name
     ORDER BY
-    d.id;
-";
+        d.id;";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':id', $id, \PDO::PARAM_INT);
     $rs->execute();
 
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
+
+function findAllIngredientsByRecipeId(\PDO $connexion, int $id){
+    $sql = 
+    "SELECT
+        i.id AS ingredient_id,
+        i.name AS ingredient_name,
+        i.unit AS ingredient_unit,
+        dhi.quantity AS ingredient_quantity
+    FROM
+        dishes_has_ingredients dhi
+    JOIN
+        ingredients i ON dhi.ingredient_id = i.id
+    WHERE
+        dhi.dish_id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}
+
 
 
 
