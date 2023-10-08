@@ -10,7 +10,6 @@ if (isset($_GET['recipes'])) {
             include_once '../app/controllers/recipesController.php';
             RecipesController\showAction($connexion, $_GET['id']);
             break;
-
         default:
             include_once '../app/controllers/recipesController.php';
             RecipesController\indexAction($connexion);

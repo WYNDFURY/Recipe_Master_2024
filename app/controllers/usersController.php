@@ -4,6 +4,18 @@ namespace App\Controllers\UsersController;
 
 use \App\Models\UsersModel;
 
+function indexAction(\PDO $connexion)
+{
+    include_once '../app/models/usersModel.php';
+    $chefs = UsersModel\findAll($connexion);
+
+    global $title, $content;
+    $title = "All Chefs";
+    ob_start();
+    include '../app/views/users/index.php';
+    $content = ob_get_clean();
+}
+
 function loginFormAction()
 {
 

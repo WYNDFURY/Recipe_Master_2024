@@ -3,14 +3,23 @@
 
 // USERS: ROUTER DES USERS
 // PATTERN: ?users=xxx
-if (isset($_GET['users'])) :
+if (isset($_GET['chefs'])) :
     include_once '../app/routers/users.php';
 
-// BOOKS: ROUTER DES RECIPES
+// RECIPES: ROUTER DES RECIPES
 // PATTERN: ?recipes=xxx
 elseif (isset($_GET['recipes'])) :
     include_once '../app/routers/recipes.php';
-    var_dump("fdsfdsf");
+
+// CATEGORIES: ROUTER DES CATEGORIES
+// PATTERN: ?categories=xxx
+elseif (isset($_GET['categories'])) :
+    include_once '../app/routers/categories.php';
+
+// INGREDIENTS: ROUTER DES INGREDIENTS
+// PATTERN: ?ingredients=xxx
+elseif (isset($_GET['ingredients'])) :
+    include_once '../app/routers/ingredients.php';
 
 // PATTERN: /
 // CTRL: homeController

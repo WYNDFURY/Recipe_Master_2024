@@ -11,6 +11,21 @@ RewriteEngine on
 # TARGET: ?recipes=index
 RewriteRule ^recipes/?$ index.php?recipes=index [L]
 
+# ROUTE LISTE DES RECETTES PAR CATEGORIE
+# PATTERN: /CATEGORIES/{id}/{slug}
+# TARGET: ?categories=show&id=x
+RewriteRule ^categories\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?categories=show&id=$1 [L]
+
+# ROUTE LISTE DES RECETTES PAR INGREDIENT
+# PATTERN: /INGREDIENTS/{id}/{slug}
+# TARGET: ?ingredients=show&id=x
+RewriteRule ^ingredients\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?ingredients=show&id=$1 [L]
+
+# ROUTE LISTE DES CHEFS/USERS
+# PATTERN: /CHEFS
+# TARGET: ?chefs=index
+RewriteRule ^chefs/?$ index.php?chefs=index [L]
+
 # -------------------------------------------------
 # API ENDPOINTS
 # -------------------------------------------------

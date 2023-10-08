@@ -1,5 +1,9 @@
--Link recipes
+-Link index recipes chefs V
 
--Link recipe user
+-link aside categories & ingredients V
+
+-Link show recipe show user 
+
+-link show all recipes from user
 
 -research feature

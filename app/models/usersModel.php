@@ -2,6 +2,26 @@
 
 namespace App\Models\UsersModel;
 
+function findAll(\PDO $connexion){
+    $sql = 
+    "SELECT
+    u.id AS chef_id,
+    u.name AS chef_name,
+    u.picture AS chef_picture,
+    u.created_at AS chef_creation_date,
+    COUNT(d.id) AS chef_recipe_count
+    FROM
+        users u
+    LEFT JOIN
+        dishes d ON u.id = d.user_id
+    GROUP BY
+        u.id, u.name, u.picture, u.created_at
+    ORDER BY
+        u.id;";
+    $rs = $connexion->query($sql);
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}
+
 function findOneByPseudo(\PDO $connexion, array $data)
 {
     $sql = "SELECT *

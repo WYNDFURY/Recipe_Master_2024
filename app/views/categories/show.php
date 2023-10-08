@@ -1,8 +1,8 @@
 <?php use Core\Tools;
 
 use function Core\Tools\truncateText;
-
 ?>
+
 <section>
     <h2 class="text-2xl font-bold mb-4">All recipes</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
