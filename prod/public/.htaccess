@@ -1,0 +1,46 @@
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+# RewriteBase "/.../"
+
+#--------------------------------------------------
+# ROUTES
+#--------------------------------------------------
+
+# ROUTE LISTE DES RECETTES
+# PATTERN: /RECIPES
+# TARGET: ?recipes=index
+RewriteRule ^recipes/?$ index.php?recipes=index [L]
+
+# ROUTE DETAIL D'UNE RECETTE
+# PATTERN: /RECIPES/{id}/{slug}
+# TARGET: ?recipes=show
+RewriteRule ^recipes\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?recipes=show&id=$1 [L]
+
+# ROUTE LISTE DES RECETTES PAR CATEGORIE
+# PATTERN: /CATEGORIES/{id}/{slug}
+# TARGET: ?categories=show&id=x
+RewriteRule ^categories\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?categories=show&id=$1 [L]
+
+# ROUTE LISTE DES RECETTES PAR INGREDIENT
+# PATTERN: /INGREDIENTS/{id}/{slug}
+# TARGET: ?ingredients=show&id=x
+RewriteRule ^ingredients\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?ingredients=show&id=$1 [L]
+
+# ROUTE LISTE DES CHEFS/USERS
+# PATTERN: /CHEFS
+# TARGET: ?chefs=index
+RewriteRule ^chefs/?$ index.php?chefs=index [L]
+
+# ROUTE DETAIL D'UN CHEF/USER
+# PATTERN: /CHEFS/{id}/{slug}
+# TARGET: ?chefs=show
+RewriteRule ^chefs\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?chefs=show&id=$1 [L]
+
+# -------------------------------------------------
+# API ENDPOINTS
+# -------------------------------------------------
+
+
+# --------------------------------------------------
+RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
+RewriteRule ^(.*)$ index.php [L]
