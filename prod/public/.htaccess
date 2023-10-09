@@ -6,6 +6,11 @@ RewriteEngine on
 # ROUTES
 #--------------------------------------------------
 
+# ROUTE FORMULAIRE DE CONNEXION
+# PATTERN: /users/login/form
+# TARGET: ?users=loginForm
+RewriteRule ^users\/login\/form$ index.php?users=loginForm [L]
+
 # ROUTE LISTE DES RECETTES
 # PATTERN: /RECIPES
 # TARGET: ?recipes=index
@@ -35,11 +40,6 @@ RewriteRule ^chefs/?$ index.php?chefs=index [L]
 # PATTERN: /CHEFS/{id}/{slug}
 # TARGET: ?chefs=show
 RewriteRule ^chefs\/([1-9][0-9]*)\/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php?chefs=show&id=$1 [L]
-
-# -------------------------------------------------
-# API ENDPOINTS
-# -------------------------------------------------
-
 
 # --------------------------------------------------
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

@@ -1,15 +1,17 @@
 <?php
 
-Use App\Controllers\CategoriesController;
+use \App\Controllers\CategoriesController;
 
 include_once '../app/controllers/categoriesController.php';
 
-if (isset($_GET['categories'])) {
-    switch ($_GET['categories']):
-        case 'show':
-        include_once '../app/controllers/categoriesController.php';
-            CategoriesController\showAction($connexion, $_GET['id']);
-            break;
-        default:
-    endswitch;
-}
+switch ($_GET['categories']):
+    case 'add':
+        CategoriesController\addAction();
+        break;
+    case 'create':
+        CategoriesController\createAction($connexion, $_POST);
+        break;
+    default:
+        CategoriesController\indexAction($connexion);
+        break;
+endswitch;

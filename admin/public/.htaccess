@@ -1,17 +1,32 @@
 # Activation du module de réécriture d'URL :
 RewriteEngine on
-# RewriteBase "/.../"
-
-#--------------------------------------------------
-# ROUTES
-#--------------------------------------------------
-
-
-# -------------------------------------------------
-# API ENDPOINTS
-# -------------------------------------------------
-
+# RewriteBase "/.../";
 
 # --------------------------------------------------
+# BACKOFFICE ROUTES
+# --------------------------------------------------
+
+# ROUTE BACKOFFICE HOME
+# PATTERN: /backoffice
+# TARGET: ?backoffice=index
+RewriteRule ^backoffice/?$ backoffice/index.php?backoffice=index [L]
+
+# ROUTE CREATION D'UNE RECETTE DANS LE BACKOFFICE
+# PATTERN: /backoffice/recipes/create
+# TARGET: ?backoffice=recipeCreate
+RewriteRule ^backoffice/recipes/create/?$ backoffice/index.php?backoffice=recipeCreate [L]
+
+# ROUTE MODIFICATION D'UNE RECETTE DANS LE BACKOFFICE
+# PATTERN: /backoffice/recipes/edit/{id}
+# TARGET: ?backoffice=recipeEdit&id=x
+RewriteRule ^backoffice/recipes/edit/([1-9][0-9]*)/?$ backoffice/index.php?backoffice=recipeEdit&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UNE RECETTE DANS LE BACKOFFICE
+# PATTERN: /backoffice/recipes/delete/{id}
+# TARGET: ?backoffice=recipeDelete&id=x
+RewriteRule ^backoffice/recipes/delete/([1-9][0-9]*)/?$ backoffice/index.php?backoffice=recipeDelete&id=$1 [L]
+
+# ... (Add similar rules for other CRUD operations)
+
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
-RewriteRule ^(.*)$ index.php [L]
+RewriteRule ^(.*)$ backoffice/index.php [L]

@@ -1,9 +1,0 @@
--Link show recipe show user V
-
--Ingredients list of a show recipe V
-
--Comment list of a show reicpe V
-
--link show all recipes from user 
-
--research feature

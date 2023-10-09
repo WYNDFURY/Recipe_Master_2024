@@ -50,6 +50,11 @@
                 href="chefs"
                 >Chefs</a
               >
+              <a
+                class="text-white hover:text-yellow-500 px-3 py-2"
+                href="chefs"
+                >LOGIN DUDE</a
+              >
             </div>
           </div>
         </div>

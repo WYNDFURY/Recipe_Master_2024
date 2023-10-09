@@ -1,0 +1,17 @@
+ - Connexion sécurisé au backoffice avec mots de passe cryptés
+
+  - Ajouter/modifier/Supprimer des catégories et des recettes avec user (menu déroulant), catégorie (menu déroulant) et ingrédients (cases à cocher) (pas d'upload de l'image)
+
+
+Contenu dynamiques facultatifs
+  - Intégration de la fonction truncate() dans les outils
+    pour tronquer le texte des cards
+  - Lien 'Voir plus' pour les recettes et les chefs
+    Permet d'afficher les 9 suivants en AJAX
+  - L'encart avec l'utilisateur le mieux noté de la page d'accueil
+  - Moteur de recherche
+    Multi-mots portant sur le nom, la description ou les ingrédients des recettes
+  - Lien des catégories
+  - Lien des ingrédients
+  - CRUD de toutes les tables sauf 'comments'
+  - Upload des images dans le backoffice

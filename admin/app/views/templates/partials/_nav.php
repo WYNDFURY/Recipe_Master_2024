@@ -1,69 +1,45 @@
-<nav class="shadow-md">
-        <div class="container mx-auto px-4">
-          <div class="flex justify-between items-center py-4">
-            <div class="flex items-center">
-              <a
-                class="text-white font-bold text-xl flex items-center"
-                href="index"
-              >
-                <i class="fas fa-utensils text-yellow-500 mr-2"></i> RECIPE
-                MASTER
-              </a>
-            </div>
-            <div class="flex md:hidden">
-              <button
-                @click="open = !open"
-                type="button"
-                class="text-white hover:text-yellow-500 focus:outline-none focus:text-yellow-500"
-              >
-                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-                  <path
-                    x-show="!open"
-                    class="inline-flex"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"
-                  />
-                  <path
-                    x-show="open"
-                    class="inline-flex"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16ZM6 21H18V19H6V21ZM6 3H18V1H6V3Z"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div class="hidden md:flex items-center space-x-4">
-              <input
-                type="text"
-                placeholder="Rechercher une recette..."
-                class="p-2 rounded-md"
-              />
-              <a
-                class="text-white hover:text-yellow-500 px-3 py-2"
-                href="recipes"
-                >Recipes</a
-              >
-              <a
-                class="text-white hover:text-yellow-500 px-3 py-2"
-                href="chefs"
-                >Chefs</a
-              >
-            </div>
-          </div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">BACKOFFICE <?php echo PROJECT_NAME; ?></a>
         </div>
-        <div x-show="open" class="md:hidden bg-gray-700">
-          <input
-            type="text"
-            placeholder="Rechercher une recette..."
-            class="p-2 w-full"
-          />
-          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="recipes"
-            >Recettes</a
-          >
-          <a class="block text-white hover:text-yellow-500 px-3 py-2" href="#"
-            >Chefs</a
-          >
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">DASHBOARD</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GESTION <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">GESTION DES POSTS</li>
+                        <li><a href="#">Liste des books</a></li>
+                        <li><a href="#">Ajouter un book</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES AUTHORS</li>
+                        <li><a href="#">Liste des authors</a></li>
+                        <li><a href="#">Ajouter un author</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES CATÉGORIES</li>
+                        <li><a href="categories">Liste des catégories</a></li>
+                        <li><a href="categories/add">Ajouter une catégorie</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES TAGS</li>
+                        <li><a href="#">Liste des tags</a></li>
+                        <li><a href="#">Ajouter un tag</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES USERS</li>
+                        <li><a href="#">Liste des users</a></li>
+                        <li><a href="#">Ajouter un user</a></li>
+                    </ul>
+                </li>
+                <li><a href="users/logout">LOGOUT</a></li>
+            </ul>
         </div>
-      </nav>
+        <!--/.nav-collapse -->
+    </div>
+</nav>
