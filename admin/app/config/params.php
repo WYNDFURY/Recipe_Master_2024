@@ -5,13 +5,13 @@ $title = '';
 $content = '';
 
 // Fichiers et Dossiers
-define('PUBLIC_FOLDER', 'main');
+define('PUBLIC_FOLDER', 'prod');
 define('ADMIN_FOLDER', 'admin');
 define('DISPATCHER_NAME', 'index.php');
-define('PROJECT_NAME', 'BOOK HUNTER');
+define('PROJECT_NAME', 'RECIPE MASTER');
 
 // Paramètres de connexion
-define('DB_HOST', '127.0.0.1:8889');
-define('DB_NAME', 'book_hunter');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'recipe_master');
 define('DB_USER', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', '');

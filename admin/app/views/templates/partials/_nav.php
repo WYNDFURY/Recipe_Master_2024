@@ -37,7 +37,7 @@
                         <li><a href="#">Ajouter un user</a></li>
                     </ul>
                 </li>
-                <li><a href="users/logout">LOGOUT</a></li>
+                <li><a href="chefs/logout">LOGOUT</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->

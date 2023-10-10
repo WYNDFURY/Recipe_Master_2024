@@ -53,6 +53,6 @@ function loginAction(\PDO $connexion, $data)
         $_SESSION['user'] = $user;
         header('location: ' . ADMIN_ROOT);
     else :
-        header('location: ' . PUBLIC_ROOT . 'users/login/form');
+        header('location: ' . PUBLIC_ROOT . 'chefs/login/form');
     endif;
 }

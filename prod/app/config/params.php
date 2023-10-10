@@ -5,7 +5,7 @@ $title = '';
 $content = '';
 
 // Fichiers et Dossiers
-define('PUBLIC_FOLDER', 'main');
+define('PUBLIC_FOLDER', 'prod');
 define('ADMIN_FOLDER', 'admin');
 define('DISPATCHER_NAME', 'index.php');
 

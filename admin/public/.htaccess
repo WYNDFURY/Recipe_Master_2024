@@ -9,7 +9,7 @@ RewriteEngine on
 # ROUTE BACKOFFICE HOME
 # PATTERN: /backoffice
 # TARGET: ?backoffice=index
-RewriteRule ^backoffice/?$ backoffice/index.php?backoffice=index [L]
+# RewriteRule ^backoffice/?$ backoffice/index.php?backoffice=index [L]
 
 # ROUTE CREATION D'UNE RECETTE DANS LE BACKOFFICE
 # PATTERN: /backoffice/recipes/create
@@ -29,4 +29,4 @@ RewriteRule ^backoffice/recipes/delete/([1-9][0-9]*)/?$ backoffice/index.php?bac
 # ... (Add similar rules for other CRUD operations)
 
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]
-RewriteRule ^(.*)$ backoffice/index.php [L]
+RewriteRule ^(.*)$ index.php [L]

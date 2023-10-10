@@ -7,9 +7,14 @@ RewriteEngine on
 #--------------------------------------------------
 
 # ROUTE FORMULAIRE DE CONNEXION
-# PATTERN: /users/login/form
-# TARGET: ?users=loginForm
-RewriteRule ^users\/login\/form$ index.php?users=loginForm [L]
+# PATTERN: /chefs/login/form
+# TARGET: ?chefs=loginForm
+RewriteRule ^chefs\/login\/form$ index.php?chefs=loginForm [L]
+
+# ROUTE DE CONNEXION
+# PATTERN: /chefs/login
+# TARGET: ?chefs=login
+RewriteRule ^chefs\/login$ index.php?chefs=login [L]
 
 # ROUTE LISTE DES RECETTES
 # PATTERN: /RECIPES

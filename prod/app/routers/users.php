@@ -9,13 +9,14 @@ switch ($_GET['chefs']):
     case 'show':
         UsersController\showAction($connexion, $_GET['id']);
         break;
+
     case 'loginForm':
         UsersController\loginFormAction();
         break;
 
     case 'login':
         UsersController\loginAction($connexion, [
-            'pseudo' => $_POST['pseudo'],
+            'user' => $_POST['user'],
             'password' => $_POST['password']
         ]);
         break;

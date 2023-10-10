@@ -28,17 +28,18 @@ function slugify($str, $delimiter = '-')
     return $str;
 }
 
-function truncateText($text, $maxLength) {
-        // Permet de trouver le dernier espace dans la limite de caractère donné.
-        $lastSpace = strrpos(substr($text, 0, $maxLength), ' ');
+function truncateText($text, $maxLength) 
+{
+    // Permet de trouver le dernier espace dans la limite de caractère donné.
+    $lastSpace = strrpos(substr($text, 0, $maxLength), ' ');
 
-        // Permet de réduire le texte jusqu'à l'espace trouvé dans la variable du dessus.
-        $truncatedText = substr($text, 0, $lastSpace);
+    // Permet de réduire le texte jusqu'à l'espace trouvé dans la variable du dessus.
+    $truncatedText = substr($text, 0, $lastSpace);
 
-        // Rajoute "..." à la fin du texte tronqué.
-        $truncatedText .= '...';
+    // Rajoute "..." à la fin du texte tronqué.
+    $truncatedText .= '...';
 
-        // Retrourne le texte tronqué.
-        return $truncatedText;
-    }
+    // Retrourne le texte tronqué.
+    return $truncatedText;
+}
 

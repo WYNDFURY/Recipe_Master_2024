@@ -1,6 +1,5 @@
 <?php
 // DISPATCHER CENTRAL
-
 // 1. Charge l'initiateur
 require_once '../core/init.php';
 
