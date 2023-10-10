@@ -16,28 +16,29 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GESTION <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">GESTION DES POSTS</li>
-                        <li><a href="#">Liste des books</a></li>
-                        <li><a href="#">Ajouter un book</a></li>
+                        <li class="dropdown-header">GESTION DES USERS</li>
+                        <li><a href="users">Liste des users</a></li>
+                        <li><a href="users/add">Ajouter un user</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">GESTION DES AUTHORS</li>
-                        <li><a href="#">Liste des authors</a></li>
-                        <li><a href="#">Ajouter un author</a></li>
+                        <li class="dropdown-header">GESTION DES RECETTES</li>
+                        <li><a href="recipes">Liste des recettes</a></li>
+                        <li><a href="recipes/add">Ajouter une recette</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES COMMENTS</li>
+                        <li><a href="comments">Liste des comments</a></li>
+                        <li><a href="comments/add">Ajouter un commentaire</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">GESTION DES INGREDIENTS</li>
+                        <li><a href="ingredients">Liste des ingrédients</a></li>
+                        <li><a href="ingredients/add">Ajouter un ingrédient</a></li>
                         <li role="separator" class="divider"></li>
                         <li class="dropdown-header">GESTION DES CATÉGORIES</li>
                         <li><a href="categories">Liste des catégories</a></li>
                         <li><a href="categories/add">Ajouter une catégorie</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">GESTION DES TAGS</li>
-                        <li><a href="#">Liste des tags</a></li>
-                        <li><a href="#">Ajouter un tag</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">GESTION DES USERS</li>
-                        <li><a href="#">Liste des users</a></li>
-                        <li><a href="#">Ajouter un user</a></li>
                     </ul>
                 </li>
-                <li><a href="chefs/logout">LOGOUT</a></li>
+                <li><a href="users/logout">LOGOUT</a></li>
             </ul>
         </div>
         <!--/.nav-collapse -->

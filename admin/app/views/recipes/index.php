@@ -1,7 +1,7 @@
 <?php
 /*
     Variables disponibles
-        $categories ARRAY(ARRAY(id, name, created_at))
+        $recipes ARRAY(ARRAY(id, name, created_at))
 */
 ?>
 <div class="page-header">
@@ -13,18 +13,24 @@
         <tr>
             <th>id</th>
             <th>Name</th>
+            <th>Chef</th>
             <th>Description</th>
+            <th>Category</th>
+            <th>Rating</th>
             <th>Created At</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($categories as $category) : ?>
+        <?php foreach ($recipes as $recipe) : ?>
             <tr>
-                <td><?php echo $category['id'] ?></td>
-                <td><?php echo $category['name'] ?></td>
-                <td><?php echo $category['description'] ?></td>
-                <td><?php echo $category['created_at'] ?></td>
+                <td><?php echo $recipe['recipe_id'] ?></td>
+                <td><?php echo $recipe['recipe_name'] ?></td>
+                <td><?php echo $recipe['recipe_chef'] ?></td>
+                <td><?php echo $recipe['recipe_description'] ?></td>
+                <td><?php echo $recipe['recipe_category'] ?></td>
+                <td><?php echo $recipe['recipe_rating'] ?></td>
+                <td><?php echo $recipe['recipe_date'] ?></td>
                 <td>
                     <button type="button" class="btn btn-primary">Modifier</button>
                     <button type="button" class="btn btn-secondary">Supprimer</button>
