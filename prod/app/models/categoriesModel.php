@@ -15,7 +15,7 @@ function findAllByCategoryId(\PDO $connexion, int $id)
     "SELECT 
         d.id AS recipe_id,
         d.name AS recipe_name,
-        AVG(r.value) AS recipe_rating,
+        ROUND(AVG(r.value),2) AS recipe_rating,
         d.description AS recipe_description,
         t.name AS category_name
     FROM

@@ -9,8 +9,11 @@ if (isset($_GET[('categories')])) :
 elseif (isset($_GET[('comments')])) :
     include_once '../app/routers/comments.php';
 
-    elseif (isset($_GET[('recipes')])) :
-        include_once '../app/routers/recipes.php';
+elseif (isset($_GET[('ratings')])) :
+    include_once '../app/routers/ratings.php';    
+
+elseif (isset($_GET[('recipes')])) :
+    include_once '../app/routers/recipes.php';
 
 elseif (isset($_GET[('ingredients')])) :
     include_once '../app/routers/ingredients.php';

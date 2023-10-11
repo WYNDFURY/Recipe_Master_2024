@@ -7,8 +7,9 @@ function findAll(\PDO $connexion){
     "SELECT
         d.id AS recipe_id,
         d.name AS recipe_name,
+        d.picture AS recipe_picture,
         d.description AS recipe_description,
-        AVG(r.value) AS recipe_rating
+        ROUND(AVG(r.value),2) AS recipe_rating
     FROM
         dishes d
     LEFT JOIN
@@ -16,7 +17,9 @@ function findAll(\PDO $connexion){
     GROUP BY
         d.id, d.name, d.description
     ORDER BY
-        d.id;";
+        d.id
+    LIMIT 
+        9;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
@@ -27,9 +30,10 @@ function findOneById(\PDO $connexion, int $id = 1){
         d.id AS recipe_id,
         d.name AS recipe_name,
         d.description AS recipe_description,
+        d.picture AS recipe_picture,
         u.name AS recipe_chef,
         d.prep_time AS recipe_time,
-        AVG(r.value) AS recipe_rating,
+        ROUND(AVG(r.value),2) AS recipe_rating,
         COUNT(c.id) AS recipe_comments
     FROM
         dishes d
@@ -59,9 +63,10 @@ function featuredRecipe(\PDO $connexion, int $id = 1){
         d.id AS recipe_id, 
         d.name AS recipe_name, 
         d.description AS recipe_description,
+        d.picture AS recipe_picture,
         u.id AS user_id, 
         u.name AS user_name, 
-        AVG(r.value) AS avg_rating, 
+        ROUND(AVG(r.value),2) AS avg_rating, 
         COALESCE(comment_count, 0) AS comment_count
     FROM 
         dishes d
@@ -95,9 +100,10 @@ function featuredRecipe(\PDO $connexion, int $id = 1){
 function findAllPopulars(\PDO $connexion) {
     $sql = 
     "SELECT 
-        AVG(r.value) AS recipe_rating, 
+        ROUND(AVG(r.value),2) AS recipe_rating, 
         d.name AS recipe_name,
         d.description AS recipe_description,
+        d.picture AS recipe_picture,
         d.id AS recipe_id,
         us.id AS user_id,
         us.name as recipe_chef,
@@ -134,7 +140,8 @@ function findAllByUserId(\PDO $connexion, int $id)
         d.id AS recipe_id,
         d.name AS recipe_name,
         d.description AS recipe_description,
-        AVG(r.value) AS recipe_avg_rating
+        d.picture AS recipe_picture,
+        ROUND(AVG(r.value),2) AS recipe_avg_rating
     FROM
         dishes d
     LEFT JOIN
@@ -159,7 +166,8 @@ function findLast3ByUserId(\PDO $connexion, int $id)
         d.id AS recipe_id,
         d.name AS recipe_name,
         d.description AS recipe_description,
-        AVG(r.value) AS recipe_avg_rating
+        d.picture AS recipe_picture,
+        ROUND(AVG(r.value),2) AS recipe_avg_rating
     FROM
         dishes d
     LEFT JOIN

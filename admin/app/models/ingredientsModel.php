@@ -9,6 +9,68 @@ function findAll(\PDO $connexion) {
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
+function findAllIngredientsByRecipeId(\PDO $connexion, int $id){
+    $sql = 
+    "SELECT
+        i.id AS ingredient_id
+    FROM
+        dishes_has_ingredients dhi
+    JOIN
+        ingredients i ON dhi.ingredient_id = i.id
+    WHERE
+        dhi.dish_id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}
+
+function deleteAllIngredientsByRecipeId(\PDO $connexion, int $id){
+    $sql = 
+    "DELETE FROM 
+        dishes_has_ingredients
+    WHERE 
+        dish_id = :id;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_STR);
+    return $rs->execute();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function findAllByIngredientId(\PDO $connexion, int $id)
 {
     $sql = 
@@ -41,24 +103,7 @@ function findAllByIngredientId(\PDO $connexion, int $id)
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
 
-function findAllIngredientsByRecipeId(\PDO $connexion, int $id){
-    $sql = 
-    "SELECT
-        i.id AS ingredient_id,
-        i.name AS ingredient_name,
-        i.unit AS ingredient_unit,
-        dhi.quantity AS ingredient_quantity
-    FROM
-        dishes_has_ingredients dhi
-    JOIN
-        ingredients i ON dhi.ingredient_id = i.id
-    WHERE
-        dhi.dish_id = :id;";
-    $rs = $connexion->prepare($sql);
-    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
-    $rs->execute();
-    return $rs->fetchAll(\PDO::FETCH_ASSOC);
-}
+
 
 
 

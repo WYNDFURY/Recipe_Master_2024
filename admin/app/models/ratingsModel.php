@@ -1,23 +1,22 @@
 <?php 
 
-namespace App\Models\CommentsModel;
+namespace App\Models\RatingsModel;
 
 function findAll(\PDO $connexion) {
     $sql = 
-    "SELECT 
-        c.id AS comment_id, 
-        c.created_at AS comment_date,
-        c.content AS comment_content,
-        u.id AS user_id,
-        u.name AS user_name,
-        d.id AS dish_id,
-        d.name AS dish_name
-     FROM 
-        comments c
-    LEFT JOIN 
-        users u ON c.user_id = u.id
-    LEFT JOIN
-        dishes d ON c.dish_id = d.id;";
+    "SELECT
+        r.user_id AS rating_user_id,
+        r.dish_id AS rating_recipe_id,
+        r.value AS rating_value,
+        r.created_at AS rating_date,
+        u.name AS rating_user_name,
+        d.name AS rating_recipe_name
+    FROM
+        ratings r
+    JOIN
+        users u ON r.user_id = u.id
+    JOIN
+        dishes d ON r.dish_id = d.id;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
@@ -50,4 +49,3 @@ function createCategory(\PDO $connexion, $name, $description) {
     $rs->execute();
     return $connexion;
 }
-

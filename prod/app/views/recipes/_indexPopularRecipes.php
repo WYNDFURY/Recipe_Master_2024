@@ -9,7 +9,7 @@ use function Core\Tools\truncateText;
     <?php foreach ($popularRecipes as $popularRecipe) : ?>
         <!-- Recipe Card -->
         <article class="bg-white rounded-lg overflow-hidden shadow-lg relative">
-            <img class="w-full h-48 object-cover" src="https://source.unsplash.com/480x360/?recipe" alt="Recipe Image" />
+            <img class="w-full h-48 object-cover" src="<?php echo $popularRecipe['recipe_picture']?>" alt="Recipe Image" />
             <div class="p-4">
                 <h3 class="text-xl font-bold mb-2"><?php echo $popularRecipe['recipe_name']?></h3>
                 <div class="flex items-center mb-2">

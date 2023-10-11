@@ -6,45 +6,194 @@ RewriteEngine on
 # BACKOFFICE ROUTES
 # --------------------------------------------------
 
+    #LOGOUT ROUTE
+
 # ROUTE LOGOUT
 # PATTERN: /USERS/LOGOUT
 # TARGET: ?users=logout
 RewriteRule ^users/logout?$ index.php?users=logout [L]
 
-# ROUTE LISTE DES CATEGORIES
-# PATTERN: /CATEGORIES 
-# TARGET: ?categories=index
-RewriteRule ^categories/?$ index.php?categories=index [L]
 
-# ROUTE LISTE DES COMMENTS
-# PATTERN: /COMMENTS 
-# TARGET: ?comments=index
-RewriteRule ^comments/?$ index.php?comments=index [L]
+    #USERS ROUTE
 
-# ROUTE LISTE DES INGREDIENTS
-# PATTERN: /INGREDIENTS
-# TARGET: ?ingredients=index
-RewriteRule ^ingredients/?$ index.php?ingredients=index [L]
+# ROUTE LISTE DES USERS
+# PATTERN: /USERS 
+# TARGET: ?users=index
+RewriteRule ^users/?$ index.php?users=index [L]
+
+# ROUTE CREATION D'UN USER 
+# PATTERN: /users/create
+# TARGET: ?users=create
+RewriteRule ^users/create/?$ index.php?users=create [L]
+
+# ROUTE CREATION FROM D'UN USER 
+# PATTERN: /users/createForm
+# TARGET: ?users=createForm
+RewriteRule ^users/createFrom/?$ index.php?users=createFrom [L]
+
+
+# ROUTE MODIFICATION D'UN USER
+# PATTERN: users/update/{id}
+# TARGET: ?users=update&id=x
+RewriteRule ^users/update/([1-9][0-9]*)/?$ index.php?users=update&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UN USER
+# PATTERN: users/delete/{id}
+# TARGET: users=delete&id=x
+RewriteRule ^users/delete/([1-9][0-9]*)/?$ index.php?users=delete&id=$1 [L]
+
+
+
+
+   #RECIPES ROUTES
 
 # ROUTE LISTE DES RECETTES
 # PATTERN: /RECIPES
 # TARGET: ?recipes=index
 RewriteRule ^recipes/?$ index.php?recipes=index [L]
 
-# ROUTE CREATION D'UNE RECETTE DANS LE BACKOFFICE
+# ROUTE CREATION D'UNE RECETTE
 # PATTERN: /recipes/create
 # TARGET: ?recipes=create
-RewriteRule ^backoffice/recipes/create/?$ index.php?recipes=Create [L]
+RewriteRule ^recipes/create/?$ index.php?recipes=create [L]
 
-# ROUTE MODIFICATION D'UNE RECETTE DANS LE BACKOFFICE
-# PATTERN: recipes/edit/{id}
-# TARGET: ?recipes=edit&id=x
-RewriteRule ^recipes/edit/([1-9][0-9]*)/?$ index.php?recipes=edit&id=$1 [L]
+# ROUTE CREATION FROM D'UNE RECETTE
+# PATTERN: /recipes/createForm
+# TARGET: ?recipes=createForm
+RewriteRule ^recipes/createForm/?$ index.php?recipes=createForm [L]
 
-# ROUTE SUPPRESSION D'UNE RECETTE DANS LE BACKOFFICE
+# ROUTE MODIFICATION D'UNE RECETTE
+# PATTERN: recipes/update/{id}
+# TARGET: ?recipes=update&id=x
+RewriteRule ^recipes/update/([1-9][0-9]*)/?$ index.php?recipes=update&id=$1 [L]
+
+# ROUTE UPDATE FROM D'UNE RECETTE
+# PATTERN: /recipes/updateForm/{id}
+# TARGET: ?recipes=updateForm&id=x
+RewriteRule ^recipes/updateForm/([1-9][0-9]*)/?$ index.php?recipes=updateForm&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UNE RECETTE
 # PATTERN: recipes/delete/{id}
 # TARGET: recipes=delete&id=x
 RewriteRule ^recipes/delete/([1-9][0-9]*)/?$ index.php?recipes=delete&id=$1 [L]
+
+
+
+
+   #RATINGS ROUTE
+
+# ROUTE LISTE DES RATINGS
+# PATTERN: /RATINGS
+# TARGET: ?ratings=index
+RewriteRule ^ratings/?$ index.php?ratings=index [L]
+
+# ROUTE CREATION D'UN RATING
+# PATTERN: /ratings/create
+# TARGET: ?ratings=create
+RewriteRule ^ratings/create/?$ index.php?ratings=create [L]
+
+# ROUTE CREATION FROM D'UN RATING
+# PATTERN: /ratings/createForm
+# TARGET: ?ratings=createForm
+RewriteRule ^ratings/createFrom/?$ index.php?ratings=createFrom [L]
+
+
+# ROUTE MODIFICATION D'UN RATING
+# PATTERN: ratings/update/{id}
+# TARGET: ?ratings=update&id=x
+RewriteRule ^ratings/update/([1-9][0-9]*)/?$ index.php?ratings=update&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UN RATING
+# PATTERN: ratings/delete/{id}
+# TARGET: ratings=delete&id=x
+RewriteRule ^ratings/delete/([1-9][0-9]*)/?$ index.php?ratings=delete&id=$1 [L]
+
+
+
+    #CATEGORIES ROUTE
+
+# ROUTE LISTE DES CATEGORIES
+# PATTERN: /CATEGORIES 
+# TARGET: ?categories=index
+RewriteRule ^categories/?$ index.php?categories=index [L]
+
+# ROUTE CREATION D'UNE CATEGORIE
+# PATTERN: /categories/create
+# TARGET: ?categories=create
+RewriteRule ^categories/create/?$ index.php?categories=create [L]
+
+# ROUTE CREATION FROM D'UNE CATEGORIE
+# PATTERN: /categories/createForm
+# TARGET: ?categories=createForm
+RewriteRule ^categories/createFrom/?$ index.php?categories=createFrom [L]
+
+# ROUTE MODIFICATION D'UNE CATEGORIE
+# PATTERN: categories/update/{id}
+# TARGET: ?categories=update&id=x
+RewriteRule ^categories/update/([1-9][0-9]*)/?$ index.php?categories=update&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UNE CATEGORIE
+# PATTERN: categories/delete/{id}
+# TARGET: categories=delete&id=x
+RewriteRule ^categories/delete/([1-9][0-9]*)$ index.php?categories=delete&id=$1 [L]
+
+
+
+    #COMMENTS ROUTE
+
+# ROUTE LISTE DES COMMENTS
+# PATTERN: /COMMENTS 
+# TARGET: ?comments=index
+RewriteRule ^comments/?$ index.php?comments=index [L]
+
+# ROUTE CREATION D'UN COMMENTAIRE
+# PATTERN: /comments/create
+# TARGET: ?comments=create
+RewriteRule ^comments/create/?$ index.php?comments=create [L]
+
+# ROUTE CREATION FROM D'UN COMMENTAIRE
+# PATTERN: /commentaires/createForm
+# TARGET: ?commentaires=createForm
+RewriteRule ^commentaires/createFrom/?$ index.php?commentaires=createFrom [L]
+
+# ROUTE MODIFICATION D'UN COMMENTAIRE
+# PATTERN: comments/update/{id}
+# TARGET: ?comments=update&id=x
+RewriteRule ^comments/update/([1-9][0-9]*)/?$ index.php?comments=update&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UN COMMENTAIRE
+# PATTERN: comments/delete/{id}
+# TARGET: comments=delete&id=x
+RewriteRule ^comments/delete/([1-9][0-9]*)/?$ index.php?comments=delete&id=$1 [L]
+
+
+
+    #INGREDIENTS ROUTE
+
+# ROUTE LISTE DES INGREDIENTS
+# PATTERN: /INGREDIENTS
+# TARGET: ?ingredients=index
+RewriteRule ^ingredients/?$ index.php?ingredients=index [L]
+
+# ROUTE CREATION D'UN INGREDIENT
+# PATTERN: /ingredients/create
+# TARGET: ?ingredients=create
+RewriteRule ^ingredients/create/?$ index.php?ingredients=create [L]
+
+# ROUTE CREATION FROM D'UN INGREDIENT
+# PATTERN: /ingredients/createForm
+# TARGET: ?ingredients=createForm
+RewriteRule ^ingredients/createFrom/?$ index.php?ingredients=createFrom [L]
+
+# ROUTE MODIFICATION D'UN INGREDIENT
+# PATTERN: ingredients/update/{id}
+# TARGET: ?ingredients=update&id=x
+RewriteRule ^ingredients/update/([1-9][0-9]*)/?$ index.php?ingredients=update&id=$1 [L]
+
+# ROUTE SUPPRESSION D'UN INGREDIENT
+# PATTERN: ingredients/delete/{id}
+# TARGET: ingredients=delete&id=x
+RewriteRule ^ingredients/delete/([1-9][0-9]*)/?$ index.php?ingredients=delete&id=$1 [L]
 
 # ... (Add similar rules for other CRUD operations)
 

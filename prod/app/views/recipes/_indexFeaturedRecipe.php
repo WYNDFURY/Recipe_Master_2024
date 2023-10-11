@@ -7,7 +7,7 @@ use function Core\Tools\TruncateText;
 <section class="relative mb-6">
     <img
         class="w-full h-96 object-cover"
-        src="https://source.unsplash.com/1600x900/?recipe"
+        src="<?php echo $featuredRecipe["recipe_picture"]; ?>"
         alt="Featured Recipe Image"
     />
     <div

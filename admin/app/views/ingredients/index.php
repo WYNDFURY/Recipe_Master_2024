@@ -26,8 +26,8 @@
                 <td><?php echo $ingredient['unit'] ?></td>
                 <td><?php echo $ingredient['created_at'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                    <button type="button" class="btn btn-secondary">Supprimer</button>
+                    <button><a href="ingredients/update/<?php echo $ingredient['id']; ?>" class="btn btn-primary">Modifier</a></button>
+                    <button><a href="ingredients/delete/<?php echo $ingredient['id']; ?>" class="btn btn-secondary">Supprimer</a></button>
                 </td>
             </tr>
         <?php endforeach; ?>

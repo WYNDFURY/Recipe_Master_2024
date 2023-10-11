@@ -49,7 +49,7 @@ use function Core\Tools\truncateText;
                 <!-- Recipe Card (Repeat for each recipe) -->
                 <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
                     <img
-                        src="https://source.unsplash.com/480x360/?recipe"
+                        src="<?php echo $recipe['recipe_picture']; ?>"
                         alt="<?php echo $recipe['recipe_name']; ?>"
                         class="w-full h-48 object-cover"
                     />

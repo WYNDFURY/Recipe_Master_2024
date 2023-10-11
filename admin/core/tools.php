@@ -27,3 +27,13 @@ function slugify($str, $delimiter = '-')
 
     return $str;
 }
+
+function explodeArrayOfArrays($inputArray){
+    $outputArray = array_map(function($item) {
+        return $item["ingredient_id"];
+    }, $inputArray);
+
+    $resultString = [implode(",", $outputArray)];
+
+    return $resultString;
+}

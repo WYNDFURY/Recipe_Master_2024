@@ -5,7 +5,7 @@
 */
 ?>
 <div class="page-header">
-    <h1>LISTE DES CATEGORIES</h1>
+    <h1>LISTE DES RECETTES</h1>
 </div>
 
 <table class="table table-bordered">
@@ -32,8 +32,8 @@
                 <td><?php echo $recipe['recipe_rating'] ?></td>
                 <td><?php echo $recipe['recipe_date'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                    <button type="button" class="btn btn-secondary">Supprimer</button>
+                    <a href="recipes/updateForm/<?php echo $recipe['recipe_id']; ?>" class="btn btn-primary">Modifier</a>
+                    <a href="recipes/delete/<?php echo $recipe['recipe_id']; ?>" class="btn btn-secondary">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

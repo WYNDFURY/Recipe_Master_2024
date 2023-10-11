@@ -26,8 +26,8 @@
                 <td><?php echo $category['description'] ?></td>
                 <td><?php echo $category['created_at'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                    <button type="button" class="btn btn-secondary">Supprimer</button>
+                    <a href="categories/update/<?php echo $category['id'];?>" class="btn btn-primary">Modifier</a>
+                    <a href="categories/delete/<?php echo $category['id'];?>" class="btn btn-secondary">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

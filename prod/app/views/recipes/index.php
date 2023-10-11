@@ -9,7 +9,7 @@ use function Core\Tools\TruncateText;
         <?php foreach ($recipes as $recipe) : ?>
             <!-- Recipe Card -->
             <article class="bg-white rounded-lg overflow-hidden shadow-lg relative">
-                <img src="https://source.unsplash.com/480x360/?recipe" alt="Recipe Image" class="w-full h-48 object-cover" />
+                <img src="<?php echo $recipe['recipe_picture']; ?>" alt="Recipe Image" class="w-full h-48 object-cover" />
                 <div class="p-4">
                     <h3 class="text-xl font-bold mb-2"><?php echo $recipe['recipe_name']; ?></h3>
                     <div class="flex items-center mb-2">

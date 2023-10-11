@@ -17,7 +17,9 @@ function findAll(\PDO $connexion){
     GROUP BY
         u.id, u.name, u.picture, u.created_at
     ORDER BY
-        u.id;";
+        u.id
+    LIMIT
+        9;";
     $rs = $connexion->query($sql);
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }

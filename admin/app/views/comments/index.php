@@ -32,8 +32,8 @@
                 <td><?php echo $comment['dish_name'] ?></td>
                 <td><?php echo $comment['comment_date'] ?></td>
                 <td>
-                    <button type="button" class="btn btn-primary">Modifier</button>
-                    <button type="button" class="btn btn-secondary">Supprimer</button>
+                    <button><a href="comments/update/<?php echo $comment['id']; ?>" class="btn btn-primary">Modifier</a></button>
+                    <button><a href="comments/delete/<?php echo $comment['id']; ?>" class="btn btn-secondary">Supprimer</a></button>
                 </td>
             </tr>
         <?php endforeach; ?>
